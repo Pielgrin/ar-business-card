@@ -1,0 +1,107 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <!--<script src="scripts/aframe.min.js"></script>-->
+    <!--<script>
+        var client = new XMLHttpRequest();
+        client.open("GET", "localhost:8888", true, "demoAccessTester", "Wy3J9JOTdN/a7N+QM1gVGGnpoBp1UJZylYb13HYM29Ed+h+7iaMSHi19Ot1ZX7GWeqkMdAHgQyHaiKwMVXn6/kay2de+147bMS/xVJkF82jlzW1Gcfna86c8YmwXSSgpauuWi3g76cq0OlwWIqMV/OcksCdO7RSyohD937ySH/8=")
+    </script>-->
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="scripts/aframe-ar.min.js"></script>
+    <script src="scripts/aframe-extras.loaders.min.js"></script>
+    
+    <!-- import events.js script -->
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>-->
+    <script src="scripts/events.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+        <a-assets>
+            <!--<a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/models/CesiumMan.gltf"></a-asset-item>-->
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf"></a-asset-item>
+            <img id="linkedin-asset" src="images/linkedin.png"></img>
+            <img id="mail-asset" src="images/mail.png"></img>
+            <img id="sms-asset" src="images/sms.png"></img>
+            <img id="phone-asset" src="images/phone.png"></img>
+            <img id="github-asset" src="images/github.png"></img>
+        </a-assets>
+
+        <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='pattern' url='images/pattern-marker.patt'>
+            <!--<a-entity
+                id="animated-model"
+                gltf-model="#animated-asset"
+                scale="2"
+                position="0 0 2"
+                url="http://google.com"
+                >     
+            </a-entity>-->
+            <a-image
+                id="linkedin-model"
+                position="0 0 -2.25"               
+                rotation="270 0 0"
+                src="#linkedin-asset"
+                url="https://www.linkedin.com/in/pierre-pellegrin-a349a7134/"
+                width="10"
+                height="10"
+                scale="0.1 0.1 0.1"
+            >
+            </a-image>
+
+            <a-image
+                id="mail-model"
+                position="-1.75 0 0"
+                rotation="270 0 0"
+                src="#mail-asset"
+                url="mailto:pierre.pellegrin@viacesi.fr"
+                width="10"
+                height="10"
+                scale="0.1 0.1 0.1"
+            >
+            </a-image>
+
+            <a-image
+                id="sms-model"
+                position="-1.25 0 -1.25"
+                rotation="270 0 0"
+                src="#sms-asset"
+                url="sms:+336504311XX"
+                width="10"
+                height="10"
+                scale="0.1 0.1 0.1"
+            ></a-image>
+
+            <a-image
+                id="phone-model"
+                position="1.25 0 -1.25"
+                rotation="270 0 02"
+                src="#phone-asset"
+                url="tel:+336504311XX"
+                width="10"
+                height="10"
+                scale="0.1 0.1 0.1"
+            >
+            </a-image>
+
+            <a-image
+                id="github-model"
+                position="1.75 0 0"
+                rotation="270 0 0"
+                src="#github-asset"
+                url="http://github.com/Pielgrin"
+                width="10"
+                height="10"
+                scale="0.1 0.1 0.1"
+            >
+            </a-image>
+            
+        </a-marker>
+
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
